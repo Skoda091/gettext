@@ -250,7 +250,8 @@ defmodule Gettext.PO do
   end
 
   defp dump_references(references, gettext_config) do
-    references = if Keyword.get(gettext_config, :write_reference_comments, true), do: references, else: []
+    # TODO: Temporary fix, :write_reference_commentsset as default to false
+    references = if Keyword.get(gettext_config, :write_reference_comments, false), do: references, else: []
     dump_references(references)
   end
 
